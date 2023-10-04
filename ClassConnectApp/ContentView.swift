@@ -7,16 +7,10 @@
 
 import SwiftUI
 
+//Simpler template ~ jose
 struct ContentView: View {
-
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("helloi worods;im not gasdfy")
-        }
-        .padding()
+        Text("Hello SwiftUI!")
     }
 }
 
