@@ -20,8 +20,7 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+// I replaced What used to be here with this nicer code to preview
+#Preview {
+    ContentView()
 }
