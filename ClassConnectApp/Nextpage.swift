@@ -13,6 +13,3 @@ struct Nextpage: View {
     }
 }
 
-#Preview {
-    Nextpage()
-}
