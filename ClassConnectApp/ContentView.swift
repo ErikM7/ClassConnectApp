@@ -10,7 +10,17 @@ import SwiftUI
 //Simpler template ~ jose
 struct ContentView: View {
     var body: some View {
-        Text("Hello SwiftUI!")
+        VStack(alignment: .leading) {
+            Text("Welcome to the app")
+                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                .font(.largeTitle)
+            HStack {
+                Text("Placeholder")
+                    .font(.subheadline)
+                Text("Another place Holder")
+                    .font(.subheadline)
+            }
+        }
     }
 }
 
