@@ -7,62 +7,32 @@
 
 import SwiftUI
 
-//Simpler template ~ jose
+
+        extension Color {
+            static let skyBlue = Color(red: 0.4627, green: 0.8392, blue: 1.0)
+            static let darkPink = Color(red: 208 / 255, green: 45 / 255, blue: 208 / 255)
+        }
+        
 struct ContentView: View {
     var body: some View {
+        
         ZStack {
-                    Color.blue
-                        .ignoresSafeArea()
-                    
-            VStack(alignment: .leading) {
-                Text("Calculus")
-                    .font(Font.largeTitle.weight(.black))
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
-                Text("Language")
-                    .font(Font.largeTitle.weight(.bold))
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
-                Text("Arts")
-                    .font(Font.largeTitle.weight(.bold))
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
-                Text("Science")
-                    .font(Font.largeTitle.weight(.bold))
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
-                Text("Social Studies")
-                    .font(Font.largeTitle.weight(.bold))
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
-                    
-                HStack {
-                    Text("Placeholder")
-                        //.font(.subheadline)
-                   // Text("Another place Holder")
-                      //  .font(.subheadline)
-                }
+            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            ignoresSafeArea()
+            HStack {
+                Text("Main Page")
+                    .fontWeight(.light)
+                    .multilineTextAlignment(.center)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
+                    .font(.body)
+                    .padding()
             }
-    //    VStack(alignment: .leading) {
-         //   Text("Chemistry")
-             //   .font(.largeTitle)
-               // .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-           // Text("Language")
-            //    .font(.largeTitle)
-            //    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-          // Text("Arts")
-             //   .font(.largeTitle)
-             //   .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-            //Text("Science")
-              //  .font(.largeTitle)
-              //  .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-           // Text("Social Studies")
-                //.font(.largeTitle)
-                //.foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                
-          //  HStack {
-              //  Text("Placeholder")
-                    //.font(.subheadline)
-               // Text("Another place Holder")
-                  //  .font(.subheadline)
-            }
+            .padding()
+            .background(Color.teal)
+            .cornerRadius(10)
+            .shadow(color: Color.white, radius: 20)
+            }.ignoresSafeArea()
+               }
+            
         }
-    }
-
-
-// I replaced What used to be here with this nicer code to preview
+    

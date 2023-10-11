@@ -12,6 +12,7 @@ struct ClassConnectAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+          
         }
     }
 }
