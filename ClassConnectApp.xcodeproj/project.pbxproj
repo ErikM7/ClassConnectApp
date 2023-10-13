@@ -12,6 +12,7 @@
 		2226E0332ACB0A2B006E9105 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226E0322ACB0A2B006E9105 /* ContentView.swift */; };
 		2226E0352ACB0A2C006E9105 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2226E0342ACB0A2C006E9105 /* Assets.xcassets */; };
 		2226E0382ACB0A2C006E9105 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2226E0372ACB0A2C006E9105 /* Preview Assets.xcassets */; };
+		22C2F62D2AD98263001F9ABF /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2F62C2AD98263001F9ABF /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2226E0322ACB0A2B006E9105 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2226E0342ACB0A2C006E9105 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2226E0372ACB0A2C006E9105 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22C2F62C2AD98263001F9ABF /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				2226E0302ACB0A2B006E9105 /* ClassConnectAppApp.swift */,
 				2226E0322ACB0A2B006E9105 /* ContentView.swift */,
+				22C2F62C2AD98263001F9ABF /* test.swift */,
 				1F5C2B522ACDAFBD00A6C463 /* Nextpage.swift */,
 				2226E0342ACB0A2C006E9105 /* Assets.xcassets */,
 				2226E0362ACB0A2C006E9105 /* Preview Content */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2226E0332ACB0A2B006E9105 /* ContentView.swift in Sources */,
+				22C2F62D2AD98263001F9ABF /* test.swift in Sources */,
 				2226E0312ACB0A2B006E9105 /* ClassConnectAppApp.swift in Sources */,
 				1F5C2B532ACDAFBD00A6C463 /* Nextpage.swift in Sources */,
 			);
