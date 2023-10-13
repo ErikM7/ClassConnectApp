@@ -17,7 +17,7 @@ struct ContentView: View {
                             .foregroundColor(Color.white)
                             .fontWeight(.black)
                             .multilineTextAlignment(.center)
-                            .font(.system(size: 28))
+                            .font(.system(size: 35))
                             .padding(19)
                             .background(
                                 LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
@@ -36,7 +36,7 @@ struct ContentView: View {
                     .foregroundColor(Color.white)
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 25))
+                    .font(.system(size: 30))
                     .padding(19)
                     .background(
                         Capsule()
@@ -50,8 +50,105 @@ struct ContentView: View {
                             .stroke(Color.black, lineWidth: 4)
                     )
             }
-            .padding(.top, 20)
+            .padding(.top, -150)
+        VStack {
+                Text("Games")
+                    .foregroundColor(Color.white)
+                    .fontWeight(.heavy)
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 30))
+                    .padding(19)
+                    .background(
+                        Capsule()
+
+                            .fill(
+                                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                            )
+                    )
+                    .overlay(
+                        Capsule()
+                            .stroke(Color.black, lineWidth: 4)
+                    )
+            }
+            .padding(.top, 0)
+        VStack {
+                    Text("Add Class")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 30))
+                        .padding(19)
+                        .background(
+                            Capsule()
+
+                                .fill(
+                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                                )
+                        )
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.black, lineWidth: 4)
+                        )
+                }
+                .padding(.top, 250)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text("Log Out")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.trailing)
+                        .font(.system(size: 25))
+                        .padding(19)
+                        .background(
+                            Capsule()
+                                .fill(
+                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                )
+                        )
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.black, lineWidth: 4)
+                        )
+                }
+                .padding(.trailing, 20)
+            }
+        VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text("Settings")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.trailing)
+                        .font(.system(size: 25))
+                        .padding(19)
+                        .background(
+                            Capsule()
+                                .fill(
+                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                )
+                        )
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.black, lineWidth: 4)
+                        )
+                }
+                .padding(.trailing, 225)
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
+        
+        
     }
                 
     
