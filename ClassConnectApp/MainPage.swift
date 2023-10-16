@@ -6,12 +6,11 @@ extension Color {
     static let watermelonPink = Color(red: 0.984375, green: 0.5, blue: 0.64453125)
 }
 
-struct ContentView: View {
+struct MainPage: View {
     var body: some View {
         ZStack {
                     LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                         .ignoresSafeArea()
-                    
                     VStack {
                         Text("Main Page")
                             .foregroundColor(Color.white)
@@ -164,8 +163,8 @@ struct ContentView: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
+struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainPage()
     }
 }
