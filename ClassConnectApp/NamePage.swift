@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct LoginPage: View {
-    @Main private var username: String = ""
+struct NamePage: View {
+    @State private var username: String = ""
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -51,22 +51,47 @@ struct LoginPage: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             }
-            .padding(.top, -150)
+            .padding(.top, -50)
 
             VStack {
-                TextField("Username", text: $username)
+                TextField("First and Last Name", text: $username)
                     .padding()
-                    .border(Color.pink, width: 2)
+                    .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
+                    
             }
+            .padding(.top, 100)
             
+            VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Text("Settings")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.heavy)
+                            .multilineTextAlignment(.trailing)
+                            .font(.system(size: 25))
+                            .padding(19)
+                            .background(
+                                Capsule()
+                                    .fill(
+                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                    )
+                            )
+                            .overlay(
+                                Capsule()
+                                    .stroke(Color.black, lineWidth: 4)
+                            )
+                    }
+                    .padding(.trailing, 225)
+                }
             
             
         }
     }
 }
-        struct LoginPage_Previews: PreviewProvider {
+        struct NamePage_Previews: PreviewProvider {
             static var previews: some View {
-                LoginPage()
+                NamePage()
                 
             }
         }

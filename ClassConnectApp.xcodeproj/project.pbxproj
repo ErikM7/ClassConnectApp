@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F5C2B532ACDAFBD00A6C463 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C2B522ACDAFBD00A6C463 /* LoginPage.swift */; };
+		1F5C2B532ACDAFBD00A6C463 /* NamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C2B522ACDAFBD00A6C463 /* NamePage.swift */; };
 		2226E0312ACB0A2B006E9105 /* ClassConnectAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226E0302ACB0A2B006E9105 /* ClassConnectAppApp.swift */; };
 		2226E0332ACB0A2B006E9105 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226E0322ACB0A2B006E9105 /* MainPage.swift */; };
 		2226E0352ACB0A2C006E9105 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2226E0342ACB0A2C006E9105 /* Assets.xcassets */; };
 		2226E0382ACB0A2C006E9105 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2226E0372ACB0A2C006E9105 /* Preview Assets.xcassets */; };
 		22C2F62D2AD98263001F9ABF /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2F62C2AD98263001F9ABF /* test.swift */; };
+		22C2F6312ADECB27001F9ABF /* AddClassPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2F6302ADECB27001F9ABF /* AddClassPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F5C2B522ACDAFBD00A6C463 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		1F5C2B522ACDAFBD00A6C463 /* NamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePage.swift; sourceTree = "<group>"; };
 		2226E02D2ACB0A2B006E9105 /* ClassConnectApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassConnectApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2226E0302ACB0A2B006E9105 /* ClassConnectAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassConnectAppApp.swift; sourceTree = "<group>"; };
 		2226E0322ACB0A2B006E9105 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		2226E0342ACB0A2C006E9105 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2226E0372ACB0A2C006E9105 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22C2F62C2AD98263001F9ABF /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		22C2F6302ADECB27001F9ABF /* AddClassPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				2226E0302ACB0A2B006E9105 /* ClassConnectAppApp.swift */,
+				22C2F6302ADECB27001F9ABF /* AddClassPage.swift */,
+				1F5C2B522ACDAFBD00A6C463 /* NamePage.swift */,
 				2226E0322ACB0A2B006E9105 /* MainPage.swift */,
-				1F5C2B522ACDAFBD00A6C463 /* LoginPage.swift */,
 				22C2F62C2AD98263001F9ABF /* test.swift */,
 				2226E0342ACB0A2C006E9105 /* Assets.xcassets */,
 				2226E0362ACB0A2C006E9105 /* Preview Content */,
@@ -146,7 +149,8 @@
 				2226E0332ACB0A2B006E9105 /* MainPage.swift in Sources */,
 				22C2F62D2AD98263001F9ABF /* test.swift in Sources */,
 				2226E0312ACB0A2B006E9105 /* ClassConnectAppApp.swift in Sources */,
-				1F5C2B532ACDAFBD00A6C463 /* LoginPage.swift in Sources */,
+				1F5C2B532ACDAFBD00A6C463 /* NamePage.swift in Sources */,
+				22C2F6312ADECB27001F9ABF /* AddClassPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

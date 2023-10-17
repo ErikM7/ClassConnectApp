@@ -11,25 +11,26 @@ struct MainPage: View {
         ZStack {
                     LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                         .ignoresSafeArea()
-                    VStack {
-                        Text("Main Page")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.black)
-                            .multilineTextAlignment(.center)
-                            .font(.system(size: 35))
-                            .padding(19)
-                            .background(
-                                LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
-                            )
-                            .cornerRadius(2)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 2)
-                                    .stroke(Color.black, lineWidth: 4)
-                            )
-                            .shadow(color: Color.white, radius: 25)
-                        Spacer()
-                    }
-                    .padding(.top, 20)
+            VStack {
+                Text("Main Page")
+                    .foregroundColor(Color.white)
+                    .fontWeight(.black)
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 35))
+                    .padding(19)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
+                    )
+                    .cornerRadius(2)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 2)
+                            .stroke(Color.black, lineWidth: 4)
+                    )
+                    .shadow(color: Color.white, radius: 25)
+                Spacer()
+            }
+            .padding(.top, 20)
+    
             VStack {
                 Text("Profile")
                     .foregroundColor(Color.white)
