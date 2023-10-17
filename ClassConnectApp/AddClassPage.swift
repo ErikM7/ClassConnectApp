@@ -8,23 +8,24 @@
 import SwiftUI
 import Combine
 
+enum FocusPin {
+    case pinOne, pinTwo, pinThree, pinFour
+}
+
 struct AddClassPage: View {
     
+    @FocusState private var pinFocusState: FocusPin?
+    @State var pinOne: String = ""
+    @State var pinTwo: String = ""
+    @State var pinThree: String = ""
+    @State var pinFour: String = ""
     
-    enum FocusPin {
-            case  pinOne, pinTwo, pinThree, pinFour
-        }
-        
-        @FocusState private var pinFocusState : FocusPin?
-        @State var pinOne: String = ""
-        @State var pinTwo: String = ""
-        @State var pinThree: String = ""
-        @State var pinFour: String = ""
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
-            
+
             VStack {
                 Text("Add Class")
                     .foregroundColor(Color.white)
@@ -44,16 +45,16 @@ struct AddClassPage: View {
                 Spacer()
             }
             .padding(.top, 20)
-            
+
             VStack {
                 Text("Enter Class Code")
                     .foregroundColor(Color.white)
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.center)
-                    .font(.system(size: 30)) // Decrease the font size
+                    .font(.system(size: 30))
                     .padding(10)
                     .background(
-                        Rectangle() // Use Rectangle shape to create a rectangle background
+                        Rectangle()
                             .fill(
                                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
                             )
@@ -64,144 +65,78 @@ struct AddClassPage: View {
                     )
             }
             .padding(.top, -50)
+
             VStack {
-                
-                            Text("Verify your Email Address")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            
-                               
-                            Text("Enter 4 digit code we'll text you on Email")
-                                .font(.caption)
-                                .fontWeight(.thin)
-                                .padding(.top)
-                           
-                            HStack(spacing:15, content: {
-                                
-                                TextField("", text: $pinOne)
-                                    .modifier(OtpModifier(pin:$pinOne))
-                                    .onChange(of:pinOne){newVal in
-                                        if (newVal.count == 1) {
-                                            pinFocusState = .pinTwo
-                                        }
-                                    }
-                                    .focused($pinFocusState, equals: .pinOne)
-                                
-                                TextField("", text:  $pinTwo)
-                                    .modifier(OtpModifier(pin:$pinTwo))
-                                    .onChange(of:pinTwo){newVal in
-                                        if (newVal.count == 1) {
-                                            pinFocusState = .pinThree
-                                        }else {
-                                            if (newVal.count == 0) {
-                                                pinFocusState = .pinOne
-                                            }
-                                        }
-                                    }
-                                    .focused($pinFocusState, equals: .pinTwo)
 
-                                
-                                TextField("", text:$pinThree)
-                                    .modifier(OtpModifier(pin:$pinThree))
-                                    .onChange(of:pinThree){newVal in
-                                        if (newVal.count == 1) {
-                                            pinFocusState = .pinFour
-                                        }else {
-                                            if (newVal.count == 0) {
-                                                pinFocusState = .pinTwo
-                                            }
-                                        }
-                                    }
-                                    .focused($pinFocusState, equals: .pinThree)
+                Text("Enter 4 Digit Code")
+                    .font(.caption)
+                    .fontWeight(.thin)
+                    .padding(.top)
 
-                                
-                                TextField("", text:$pinFour)
-                                    .modifier(OtpModifier(pin:$pinFour))
-                                    .onChange(of:pinFour){newVal in
-                                        if (newVal.count == 0) {
-                                            pinFocusState = .pinThree
-                                        }
-                                    }
-                                    .focused($pinFocusState, equals: .pinFour)
+                HStack(spacing: 15) {
+                            TextField("", text: $pinOne)
+                                .modifier(OtpModifier(pin: $pinOne, focusState: $pinFocusState, targetPin: .pinOne))
 
-                                    
-                            })
-                            .padding(.vertical)
-                        
-                            
-                            Button(action: {}, label: {
-                                Spacer()
-                                Text("Verify")
-                                    .font(.system(.title3, design: .rounded))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                                Spacer()
-                            })
-                            .padding(15)
-                            .background(Color.blue)
-                            .clipShape(Capsule())
-                            .padding()
+                            TextField("", text: $pinTwo)
+                                .modifier(OtpModifier(pin: $pinTwo, focusState: $pinFocusState, targetPin: .pinTwo))
+
+                            TextField("", text: $pinThree)
+                                .modifier(OtpModifier(pin: $pinThree, focusState: $pinFocusState, targetPin: .pinThree))
+
+                            TextField("", text: $pinFour)
+                                .modifier(OtpModifier(pin: $pinFour, focusState: $pinFocusState, targetPin: .pinFour))
                         }
-            struct OtpModifier: ViewModifier {
-                @Binding var pin: String
-                @Binding var focusState: AddClassPage.FocusPin
-                var targetPin: AddClassPage.FocusPin
+                }
+                .padding(.vertical)
 
-                func body(content: Content) -> some View {
-                    content
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 20))
-                        .padding(10)
-                        .background(
-                            Rectangle()
-                                .fill(
-                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
-                                )
-                        )
-                        .overlay(
-                            Rectangle()
-                                .stroke(Color.black, lineWidth: 2)
-                        )
-                        .focused($focusState, equals: targetPin)
-                        .onChange(of: pin) { newVal in
-                            if newVal.count == 1 {
-                                focusState = targetPin
-                            } else if newVal.count == 0, focusState == targetPin {
-                                focusState = .pinOne
-                            }
-                        }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-           
+                Button(action: {
+                    // Handle verification logic here
+                }) {
+                    Spacer()
+                    Text("Verify")
+                        .font(.system(.title3, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding(15)
+                .background(Color.blue)
+                .clipShape(Capsule())
+                .padding()
+            }
         }
     }
-}
 
+struct OtpModifier: ViewModifier {
+    @Binding var pin: String
+    @Binding private var focusState: FocusPin
+    var targetPin: FocusPin
+
+    func body(content: Content) -> some View {
+        content
+            .multilineTextAlignment(.center)
+            .font(.system(size: 20))
+            .padding(10)
+            .background(
+                Rectangle()
+                    .fill(
+                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                    )
+            )
+            .overlay(
+                Rectangle()
+                    .stroke(Color.black, lineWidth: 2)
+            )
+            .focused($focusState, equals: targetPin)
+            .onChange(of: pin) { newVal in
+                if newVal.count == 1 {
+                    focusState = targetPin
+                } else if newVal.isEmpty, focusState == targetPin {
+                    focusState = .pinOne
+                }
+            }
+    }
+}
 
 
 
