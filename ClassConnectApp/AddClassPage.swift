@@ -75,16 +75,16 @@ struct AddClassPage: View {
 
                 HStack(spacing: 15) {
                             TextField("", text: $pinOne)
-                                .modifier(OtpModifier(pin: $pinOne, focusState: $pinFocusState, targetPin: .pinOne))
+                                .modifier(OtpModifier(pin: $pinOne, targetPin: .pinOne))
 
                             TextField("", text: $pinTwo)
-                                .modifier(OtpModifier(pin: $pinTwo, focusState: $pinFocusState, targetPin: .pinTwo))
+                                .modifier(OtpModifier(pin: $pinTwo, targetPin: .pinTwo))
 
                             TextField("", text: $pinThree)
-                                .modifier(OtpModifier(pin: $pinThree, focusState: $pinFocusState, targetPin: .pinThree))
+                                .modifier(OtpModifier(pin: $pinThree, targetPin: .pinThree))
 
                             TextField("", text: $pinFour)
-                                .modifier(OtpModifier(pin: $pinFour, focusState: $pinFocusState, targetPin: .pinFour))
+                                .modifier(OtpModifier(pin: $pinFour, targetPin: .pinFour))
                         }
                 }
                 .padding(.vertical)
@@ -127,14 +127,8 @@ struct OtpModifier: ViewModifier {
                 Rectangle()
                     .stroke(Color.black, lineWidth: 2)
             )
-            .focused($focusState, equals: targetPin)
-            .onChange(of: pin) { newVal in
-                if newVal.count == 1 {
-                    focusState = targetPin
-                } else if newVal.isEmpty, focusState == targetPin {
-                    focusState = .pinOne
-                }
-            }
+            .border(Color.red, width: focusState == targetPin ? 2 : 0)
+                        .focused($focusState, equals: targetPin)
     }
 }
 
