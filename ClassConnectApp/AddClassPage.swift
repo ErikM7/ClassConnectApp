@@ -1,12 +1,4 @@
-//
-//  SwiftUIView.swift
-//  ClassConnectApp
-//
-//  Created by Erik Mejia on 10/17/23.
-//
-
 import SwiftUI
-import Combine
 
 enum FocusPin {
     case pinOne, pinTwo, pinThree, pinFour
@@ -20,12 +12,11 @@ struct AddClassPage: View {
     @State var pinThree: String = ""
     @State var pinFour: String = ""
     
-
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
-
+            
             VStack {
                 Text("Add Class")
                     .foregroundColor(Color.white)
@@ -45,7 +36,7 @@ struct AddClassPage: View {
                 Spacer()
             }
             .padding(.top, 20)
-
+            
             VStack {
                 Text("Enter Class Code")
                     .foregroundColor(Color.white)
@@ -65,51 +56,53 @@ struct AddClassPage: View {
                     )
             }
             .padding(.top, -50)
-
+            
             VStack {
-
                 Text("Enter 4 Digit Code")
                     .font(.caption)
                     .fontWeight(.thin)
                     .padding(.top)
-
+                
                 HStack(spacing: 15) {
-                            TextField("", text: $pinOne)
-                                .modifier(OtpModifier(pin: $pinOne, targetPin: .pinOne))
-
-                            TextField("", text: $pinTwo)
-                                .modifier(OtpModifier(pin: $pinTwo, targetPin: .pinTwo))
-
-                            TextField("", text: $pinThree)
-                                .modifier(OtpModifier(pin: $pinThree, targetPin: .pinThree))
-
-                            TextField("", text: $pinFour)
-                                .modifier(OtpModifier(pin: $pinFour, targetPin: .pinFour))
-                        }
+                    TextField("", text: $pinOne)
+                        .modifier(OtpModifier(pin: $pinOne, targetPin: .pinOne))
+                        .focused($pinFocusState, equals: .pinOne)
+                    
+                    TextField("", text: $pinTwo)
+                        .modifier(OtpModifier(pin: $pinTwo, targetPin: .pinTwo))
+                        .focused($pinFocusState, equals: .pinTwo)
+                    
+                    TextField("", text: $pinThree)
+                        .modifier(OtpModifier(pin: $pinThree, targetPin: .pinThree))
+                        .focused($pinFocusState, equals: .pinThree)
+                    
+                    TextField("", text: $pinFour)
+                        .modifier(OtpModifier(pin: $pinFour, targetPin: .pinFour))
+                        .focused($pinFocusState, equals: .pinFour)
                 }
-                .padding(.vertical)
-
-                Button(action: {
-                    // Handle verification logic here
-                }) {
-                    Spacer()
-                    Text("Verify")
-                        .font(.system(.title3, design: .rounded))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Spacer()
-                }
-                .padding(15)
-                .background(Color.blue)
-                .clipShape(Capsule())
-                .padding()
             }
+            .padding(.vertical)
+            
+            Button(action: {
+                // Handle verification logic here
+            }) {
+                Spacer()
+                Text("Verify")
+                    .font(.system(.title3, design: .rounded))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                Spacer()
+            }
+            .padding(15)
+            .background(Color.blue)
+            .clipShape(Capsule())
+            .padding()
         }
     }
+}
 
 struct OtpModifier: ViewModifier {
     @Binding var pin: String
-    @Binding private var focusState: FocusPin
     var targetPin: FocusPin
 
     func body(content: Content) -> some View {
@@ -127,22 +120,8 @@ struct OtpModifier: ViewModifier {
                 Rectangle()
                     .stroke(Color.black, lineWidth: 2)
             )
-            .border(Color.red, width: focusState == targetPin ? 2 : 0)
-                        .focused($focusState, equals: targetPin)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 struct AddClassPage_Previews: PreviewProvider {
     static var previews: some View {
