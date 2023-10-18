@@ -55,12 +55,12 @@ struct AddClassPage: View {
                             .stroke(Color.black, lineWidth: 2)
                     )
             }
-            .padding(.top, -50)
+            .padding(.top, -125)
             
             VStack {
                 Text("Enter 4 Digit Code")
                     .font(.caption)
-                    .fontWeight(.thin)
+                    .fontWeight(.bold)
                     .padding(.top)
                 
                 HStack(spacing: 15) {
@@ -87,16 +87,23 @@ struct AddClassPage: View {
                 // Handle verification logic here
             }) {
                 Spacer()
-                Text("Verify")
+                Text("Submit")
                     .font(.system(.title3, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                 Spacer()
             }
             .padding(15)
-            .background(Color.blue)
-            .clipShape(Capsule())
-            .padding()
+                .background(
+                    Capsule()
+                        .fill(Color.blue) // Background color
+                )
+                .overlay(
+                    Capsule()
+                        .stroke(Color.black, lineWidth: 2) // Stroke
+                )
+                .padding(.top, 250)
+        
         }
     }
 }
