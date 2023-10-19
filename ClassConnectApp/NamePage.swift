@@ -65,7 +65,7 @@ struct NamePage: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        Text("Settings")
+                        Text("Back")
                             .foregroundColor(Color.white)
                             .fontWeight(.heavy)
                             .multilineTextAlignment(.trailing)
@@ -82,8 +82,9 @@ struct NamePage: View {
                                     .stroke(Color.black, lineWidth: 4)
                             )
                     }
-                    .padding(.trailing, 225)
+                    .padding(.trailing, 275)
                 }
+            
             
             
         }
