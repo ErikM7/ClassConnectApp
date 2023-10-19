@@ -7,6 +7,7 @@ extension Color {
 }
 
 struct MainPage: View {
+    @State private var shouldNavigateToProfilePage = false
     var body: some View {
         ZStack {
                     LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -30,27 +31,37 @@ struct MainPage: View {
                 Spacer()
             }
             .padding(.top, 20)
-    
             VStack {
-                Text("Profile")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.heavy)
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 30))
-                    .padding(19)
-                    .background(
-                        Capsule()
-
-                            .fill(
-                                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                Button(action: {
+                    // Set the boolean to true to trigger navigation
+                    shouldNavigateToProfilePage = true
+                }) {
+                    VStack {
+                        Text("Profile")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.heavy)
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 30))
+                            .padding(19)
+                            .background(
+                                Capsule()
+                                
+                                    .fill(
+                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                                    )
                             )
-                    )
-                    .overlay(
-                        Capsule()
-                            .stroke(Color.black, lineWidth: 4)
-                    )
+                            .overlay(
+                                Capsule()
+                                    .stroke(Color.black, lineWidth: 4)
+                            )
+                    }
+                    .padding(.top, -150)
+                    
+                    NavigationLink(destination: ProfilePage(), isActive: $shouldNavigateToProfilePage) {
+                        EmptyView()
+                    }
+                }
             }
-            .padding(.top, -150)
         VStack {
                 Text("Games")
                     .foregroundColor(Color.white)

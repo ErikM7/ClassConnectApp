@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct NamePage: View {
-    @State private var username: String = ""
+    @State private var name: String = ""
+    @State private var shouldNavigateToMainPage = false
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -52,41 +53,68 @@ struct NamePage: View {
                     )
             }
             .padding(.top, -50)
-
+            
             VStack {
-                TextField("First and Last Name", text: $username)
+                TextField("First and Last Name", text: $name)
                     .padding()
                     .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
-                    
+                
             }
             .padding(.top, 100)
             
             VStack {
+                Spacer()
+                HStack {
                     Spacer()
-                    HStack {
-                        Spacer()
-                        Text("Back")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.heavy)
-                            .multilineTextAlignment(.trailing)
-                            .font(.system(size: 25))
-                            .padding(19)
-                            .background(
-                                Capsule()
-                                    .fill(
-                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
-                                    )
-                            )
-                            .overlay(
-                                Capsule()
-                                    .stroke(Color.black, lineWidth: 4)
-                            )
-                    }
-                    .padding(.trailing, 275)
+                    Text("Back")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.trailing)
+                        .font(.system(size: 25))
+                        .padding(19)
+                        .background(
+                            Capsule()
+                                .fill(
+                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                )
+                        )
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.black, lineWidth: 4)
+                        )
                 }
-            
-            
-            
+                .padding(.trailing, 275)
+            }
+            VStack {
+                            Button(action: {
+                                // Set the boolean to true to trigger navigation
+                                shouldNavigateToMainPage = true
+                            }) {
+                                HStack {
+                                    Spacer()
+                                    Text("Submit")
+                                        .font(.system(.title3, design: .rounded))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                                    Spacer()
+                                }
+                                .padding(15)
+                                .background(
+                                    Capsule()
+                                        .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom) // Background color
+                                             )
+                                        .overlay(
+                                            Capsule()
+                                                .stroke(Color.black, lineWidth: 2) // Stroke
+                                        )
+                                )
+                                .padding(.top, 250)
+                                
+                                NavigationLink(destination: MainPage(), isActive: $shouldNavigateToMainPage) {
+                                    EmptyView()
+                            }
+                }
+            }
         }
     }
 }

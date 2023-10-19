@@ -84,55 +84,66 @@ struct AddClassPage: View {
                     }
                 }
                 .padding(.vertical)
-                
-                Button(action: {
-                    // Set the boolean to true to trigger navigation
-                    shouldNavigateToNamePage = true
-                }) {
-                    Spacer()
-                    Text("Submit")
-                        .font(.system(.title3, design: .rounded))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Spacer()
-                }
-                .padding(15)
-                .background(
-                    Capsule()
-                        .fill(Color.blue) // Background color
-                )
-                .overlay(
-                    Capsule()
-                        .stroke(Color.black, lineWidth: 2) // Stroke
-                )
-                .padding(.top, 250)
-                
-                NavigationLink(destination: NamePage(), isActive: $shouldNavigateToNamePage) {
-                    EmptyView()
+                VStack {
+                    Button(action: {
+                        // Check if all PIN fields are filled before triggering navigation
+                        if pinOne.count == 1 && pinTwo.count == 1 && pinThree.count == 1 && pinFour.count == 1 {
+                            shouldNavigateToNamePage = true
+                        }
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Submit")
+                                .font(.system(.title3, design: .rounded))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                            Spacer()
+                        }
+                        .padding(15)
+                        .background(
+                            Capsule()
+                                .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                                     )
+                                .overlay(
+                                    Capsule()
+                                        .stroke(Color.black, lineWidth: 2)
+                                )
+                        )
+                        .padding(.top, 250)
+                        NavigationLink(destination: NamePage(), isActive: $shouldNavigateToNamePage) {
+                            EmptyView()
+                        }
+                    }
                 }
             }
         }
     }
-}
-
-struct OtpModifier: ViewModifier {
-    @Binding var pin: String
-    var targetPin: FocusPin
-
-    func body(content: Content) -> some View {
-        content
-            .multilineTextAlignment(.center)
-            .font(.system(size: 20))
-            .padding(10)
-            .background(
-                Rectangle()
-                    .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
-                    )
-            )
-            .overlay(
-                Rectangle()
-                    .stroke(Color.black, lineWidth: 2)
-            )
+    
+    struct OtpModifier: ViewModifier {
+        @Binding var pin: String
+        var targetPin: FocusPin
+        
+        func body(content: Content) -> some View {
+            content
+                .multilineTextAlignment(.center)
+                .font(.system(size: 20))
+                .padding(10)
+                .background(
+                    Rectangle()
+                        .fill(
+                            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                        )
+                )
+                .overlay(
+                    Rectangle()
+                        .stroke(Color.black, lineWidth: 2)
+                )
+        }
+    }
+    struct AddClassPage_Previews: PreviewProvider {
+        static var previews: some View {
+            AddClassPage()
+            
+        }
     }
 }
