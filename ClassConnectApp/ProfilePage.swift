@@ -39,6 +39,56 @@ struct ProfilePage: View {
                     .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
             }
             .padding(.top, -150)
+            
+            VStack {
+                Text("Favorite Music")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top)
+            }
+            .padding(.top, -75)
+            VStack {
+                TextField("Favorite Music", text: $name)
+                    .padding()
+                    .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
+            }
+            .padding(.top, 10)
+            
+            VStack {
+                Text("Favorite Sport")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top)
+            }
+            .padding(.top, 133)
+            VStack {
+                TextField("Favorite Sport", text: $name)
+                    .padding()
+                    .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
+            }
+            .padding(.top, 250)
+            
+            VStack {
+                Text("Favorite Sport")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top)
+            }
+            .padding(.top, 380)
+            VStack {
+                TextField("Favorite Sport", text: $name)
+                    .padding()
+                    .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
+            }
+            .padding(.top, 500)
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
     }
