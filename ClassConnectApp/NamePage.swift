@@ -83,36 +83,37 @@ struct NamePage: View {
                                 .stroke(Color.black, lineWidth: 4)
                         )
                 }
-                .padding(.trailing, 275)
+                
             }
             VStack {
-                            Button(action: {
-                                // Set the boolean to true to trigger navigation
-                                shouldNavigateToMainPage = true
-                            }) {
-                                HStack {
-                                    Spacer()
-                                    Text("Submit")
-                                        .font(.system(.title3, design: .rounded))
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.white)
-                                    Spacer()
-                                }
-                                .padding(15)
-                                .background(
-                                    Capsule()
-                                        .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom) // Background color
-                                             )
-                                        .overlay(
-                                            Capsule()
-                                                .stroke(Color.black, lineWidth: 2) // Stroke
-                                        )
-                                )
-                                .padding(.top, 250)
-                                
-                                NavigationLink(destination: MainPage(), isActive: $shouldNavigateToMainPage) {
-                                    EmptyView()
-                            }
+                Button(action: {
+                    if !name.isEmpty {
+                        shouldNavigateToMainPage = true // Set to true to trigger navigation
+                    }
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Submit")
+                            .font(.system(.title3, design: .rounded))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                    .padding(15)
+                    .background(
+                        Capsule()
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom))
+                            .overlay(
+                                Capsule()
+                                    .stroke(Color.black, lineWidth: 2)
+                            )
+                    )
+                    .padding(.top, 250)
+                    if shouldNavigateToMainPage && !name.isEmpty {
+                        NavigationLink(destination: MainPage(), isActive: $shouldNavigateToMainPage) {
+                            EmptyView()
+                        }
+                    }
                 }
             }
         }

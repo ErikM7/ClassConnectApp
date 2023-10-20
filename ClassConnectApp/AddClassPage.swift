@@ -118,26 +118,27 @@ struct AddClassPage: View {
             }
         }
     }
-    
-    struct OtpModifier: ViewModifier {
-        @Binding var pin: String
-        var targetPin: FocusPin
         
-        func body(content: Content) -> some View {
-            content
-                .multilineTextAlignment(.center)
-                .font(.system(size: 20))
-                .padding(10)
-                .background(
-                    Rectangle()
-                        .fill(
-                            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
-                        )
-                )
-                .overlay(
-                    Rectangle()
-                        .stroke(Color.black, lineWidth: 2)
-                )
+        struct OtpModifier: ViewModifier {
+            @Binding var pin: String
+            var targetPin: FocusPin
+            
+            func body(content: Content) -> some View {
+                content
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 20))
+                    .padding(10)
+                    .background(
+                        Rectangle()
+                            .fill(
+                                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                            )
+                    )
+                    .overlay(
+                        Rectangle()
+                            .stroke(Color.black, lineWidth: 2)
+                    )
+            }
         }
     }
     struct AddClassPage_Previews: PreviewProvider {
@@ -146,4 +147,3 @@ struct AddClassPage: View {
             
         }
     }
-}

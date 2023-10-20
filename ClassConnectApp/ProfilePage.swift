@@ -1,25 +1,19 @@
-//
-//  ProfilePage.swift
-//  ClassConnectApp
-//
-//  Created by Erik Mejia on 10/19/23.
-//
-
 import SwiftUI
 
 struct ProfilePage: View {
-    @State private var username: String = ""
+    @State private var name: String = ""
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
+            
             VStack {
-                Text("Profile")
+                Text("Main Page")
                     .foregroundColor(Color.white)
                     .fontWeight(.black)
                     .multilineTextAlignment(.center)
                     .font(.system(size: 35))
-                    .padding(18)
+                    .padding(19)
                     .background(
                         LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
                     )
@@ -32,35 +26,24 @@ struct ProfilePage: View {
                 Spacer()
             }
             .padding(.top, 20)
-            
             VStack {
-                TextField("Grade Level", text: $username)
+                Text("Enter 4 Digit Code")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top)
+            }
+            .padding(.top, -200)
+            VStack {
+                TextField("Graduation Year", text: $name)
                     .padding()
                     .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
-                    
             }
-            .padding(.top, 100)
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            .padding(.top, -150)
         }
-        
-        
     }
-    
-    struct ProfilePage_Previews: PreviewProvider {
-        static var previews: some View {
-            ProfilePage()
-        }
+    }
+struct ProfilePage_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfilePage()
     }
 }
