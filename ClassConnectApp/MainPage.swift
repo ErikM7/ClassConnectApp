@@ -2,9 +2,9 @@ import SwiftUI
 
 struct MainPage: View {
     @State private var shouldNavigateToProfilePage = false
-    @State private var shouldNavigateToGames = false
-    @State private var shouldNavigateToAddClass1 = false
-    @State private var shouldNavigateToAddClass2 = false
+    @State private var shouldNavigateToGame_Page = false
+    @State private var shouldNavigateToAddClassPage = false
+    @State private var shouldNavigateToAddClassPageMain = false
     var body: some View {
         ZStack {
                     LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -52,16 +52,15 @@ struct MainPage: View {
                                     .stroke(Color.black, lineWidth: 4)
                             )
                     }
-                    .padding(.top, -150)
-                    
-                    NavigationLink(destination: ProfilePage(), isActive: $shouldNavigateToProfilePage) {
-                        EmptyView()
-                    }
+                   
                 }
-            }
+                NavigationLink("", destination: ProfilePage(), isActive: $shouldNavigateToProfilePage)
+                    }
+                    .padding(.top, -150)
+               
         VStack {
             Button(action: {
-                                shouldNavigateToGames_Page = true
+                shouldNavigateToGame_Page = true
                             }) {
                                 VStack {
                                     Text("Games")
@@ -83,31 +82,38 @@ struct MainPage: View {
                                 }
                             }
                             
-            NavigationLink(destination: Games_Page(), isActive: $shouldNavigateToGames) {
-                EmptyView()
-            }
+            NavigationLink("", destination: Game_Page(), isActive: $shouldNavigateToGame_Page)
             }
             .padding(.top, 0)
-        VStack {
-                    Text("Add Class")
-                        .foregroundColor(Color.white)
-                        .fontWeight(.heavy)
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 30))
-                        .padding(19)
-                        .background(
-                            Capsule()
-
-                                .fill(
-                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
-                                )
-                        )
-                        .overlay(
-                            Capsule()
-                                .stroke(Color.black, lineWidth: 4)
-                        )
+            
+            VStack {
+                Button(action: {
+                    shouldNavigateToAddClassPageMain = true
+                }) {
+                    VStack {
+                        Text("Add Class")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.heavy)
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 30))
+                            .padding(19)
+                            .background(
+                                Capsule()
+                                
+                                    .fill(
+                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
+                                    )
+                            )
+                            .overlay(
+                                Capsule()
+                                    .stroke(Color.black, lineWidth: 4)
+                            )
+                    }
+                }
+                NavigationLink("", destination: AddClassPageMain(), isActive: $shouldNavigateToAddClassPageMain)
                 }
                 .padding(.top, 250)
+            
             VStack {
                 Spacer()
                 HStack {
@@ -142,10 +148,8 @@ struct MainPage: View {
         
         
     }
-                
-    
-}
 
+}
 
 
 

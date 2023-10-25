@@ -12,7 +12,7 @@ struct ProfilePage: View {
             
             ScrollView {
                 VStack {
-                    Text("Main Page")
+                    Text("Profile Page")
                         .foregroundColor(Color.white)
                         .fontWeight(.black)
                         .multilineTextAlignment(.center)
