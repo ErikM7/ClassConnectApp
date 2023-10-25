@@ -11,117 +11,116 @@ struct NamePage: View {
     @State private var name: String = ""
     @State private var shouldNavigateToMainPage = false
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
-            VStack {
-                Text("Name")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.black)
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 35))
-                    .padding(19)
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
-                    )
-                    .cornerRadius(2)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 2)
-                            .stroke(Color.black, lineWidth: 4)
-                    )
-                    .shadow(color: Color.white, radius: 25)
-                Spacer()
-            }
-            .padding(.top, 20)
-            
-            VStack {
-                Text("Enter your first and last name")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.heavy)
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 20)) // Decrease the font size
-                    .padding(10)
-                    .background(
-                        Rectangle() // Use Rectangle shape to create a rectangle background
-                            .fill(
-                                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
-                            )
-                    )
-                    .overlay(
-                        Rectangle()
-                            .stroke(Color.black, lineWidth: 2)
-                    )
-            }
-            .padding(.top, -50)
-            
-            VStack {
-                TextField("First and Last Name", text: $name)
-                    .padding()
-                    .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
-                
-            }
-            .padding(.top, 100)
-            
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Text("Back")
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
+                VStack {
+                    Text("Name")
                         .foregroundColor(Color.white)
-                        .fontWeight(.heavy)
-                        .multilineTextAlignment(.trailing)
-                        .font(.system(size: 25))
+                        .fontWeight(.black)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 35))
                         .padding(19)
                         .background(
-                            Capsule()
+                            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
+                        )
+                        .cornerRadius(2)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 2)
+                                .stroke(Color.black, lineWidth: 4)
+                        )
+                        .shadow(color: Color.white, radius: 25)
+                    Spacer()
+                }
+                .padding(.top, 20)
+                
+                VStack {
+                    Text("Enter your first and last name")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 20)) // Decrease the font size
+                        .padding(10)
+                        .background(
+                            Rectangle() // Use Rectangle shape to create a rectangle background
                                 .fill(
-                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
                                 )
                         )
                         .overlay(
-                            Capsule()
-                                .stroke(Color.black, lineWidth: 4)
+                            Rectangle()
+                                .stroke(Color.black, lineWidth: 2)
                         )
                 }
+                .padding(.top, -50)
                 
-            }
-            VStack {
-                Button(action: {
-                    if !name.isEmpty {
-                        shouldNavigateToMainPage = true // Set to true to trigger navigation
-                    }
-                }) {
+                VStack {
+                    TextField("First and Last Name", text: $name)
+                        .padding()
+                        .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
+                    
+                }
+                .padding(.top, 100)
+                
+                VStack {
+                    Spacer()
                     HStack {
                         Spacer()
-                        Text("Submit")
-                            .font(.system(.title3, design: .rounded))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        Spacer()
-                    }
-                    .padding(15)
-                    .background(
-                        Capsule()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom))
+                        Text("Back")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.heavy)
+                            .multilineTextAlignment(.trailing)
+                            .font(.system(size: 25))
+                            .padding(19)
+                            .background(
+                                Capsule()
+                                    .fill(
+                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                    )
+                            )
                             .overlay(
                                 Capsule()
-                                    .stroke(Color.black, lineWidth: 2)
+                                    .stroke(Color.black, lineWidth: 4)
                             )
-                    )
-                    .padding(.top, 250)
-                    if shouldNavigateToMainPage && !name.isEmpty {
-                        NavigationLink(destination: MainPage(), isActive: $shouldNavigateToMainPage) {
-                            EmptyView()
-                        }
                     }
+                    
+                }
+                VStack {
+                    Button(action: {
+                        if !name.isEmpty {
+                            shouldNavigateToMainPage = true
+                        }
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Submit")
+                                .font(.system(.title3, design: .rounded))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                            Spacer()
+                        }
+                        .padding(15)
+                        .background(
+                            Capsule()
+                                .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom))
+                                .overlay(
+                                    Capsule()
+                                        .stroke(Color.black, lineWidth: 2)
+                                )
+                        )}
+                    .padding(.top, 250)
+                }
+                
+                if shouldNavigateToMainPage && !name.isEmpty {
+                    NavigationLink("", destination: MainPage(), isActive: $shouldNavigateToMainPage)
+                        .navigationBarBackButtonHidden(true)
                 }
             }
         }
     }
+struct NamePage_Previews: PreviewProvider {
+    static var previews: some View {
+        NamePage()
+            .navigationBarBackButtonHidden(true)
+    }
 }
-        struct NamePage_Previews: PreviewProvider {
-            static var previews: some View {
-                NamePage()
-                
-            }
-        }

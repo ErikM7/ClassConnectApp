@@ -14,7 +14,6 @@ struct AddClassPage: View {
     @State private var shouldNavigateToNamePage = false
     
     var body: some View {
-        NavigationView {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
@@ -110,14 +109,13 @@ struct AddClassPage: View {
                                 )
                         )
                         .padding(.top, 250)
-                        NavigationLink(destination: NamePage(), isActive: $shouldNavigateToNamePage) {
-                            EmptyView()
+                        NavigationLink("", destination: NamePage(), isActive: $shouldNavigateToNamePage)
+                            .navigationBarBackButtonHidden(true)
                         }
                     }
                 }
             }
         }
-    }
         
         struct OtpModifier: ViewModifier {
             @Binding var pin: String
@@ -140,10 +138,8 @@ struct AddClassPage: View {
                     )
             }
         }
-    }
     struct AddClassPage_Previews: PreviewProvider {
         static var previews: some View {
             AddClassPage()
-            
         }
     }

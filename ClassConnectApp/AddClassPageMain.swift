@@ -14,7 +14,6 @@ struct AddClassPageMain: View {
     @State private var shouldNavigateToMainPage = false
     
     var body: some View {
-        NavigationView {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
@@ -71,7 +70,7 @@ struct AddClassPageMain: View {
                             .focused($pinFocusState, equals: .pinOne1)
                         
                         TextField("", text: $pinTwo2)
-                            .modifier(OtpModifier(pin: $pinTwo2, targetPin: .pinTwo2))
+                          .modifier(OtpModifier(pin: $pinTwo2, targetPin: .pinTwo2))
                             .focused($pinFocusState, equals: .pinTwo2)
                         
                         TextField("", text: $pinThree3)
@@ -79,7 +78,7 @@ struct AddClassPageMain: View {
                             .focused($pinFocusState, equals: .pinThree3)
                         
                         TextField("", text: $pinFour4)
-                            .modifier(OtpModifier(pin: $pinFour4, targetPin: .pinFour4))
+                           .modifier(OtpModifier(pin: $pinFour4, targetPin: .pinFour4))
                             .focused($pinFocusState, equals: .pinFour4)
                     }
                 }
@@ -103,7 +102,7 @@ struct AddClassPageMain: View {
                     .background(
                         Capsule()
                             .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
-                            )
+                                 )
                             .overlay(
                                 Capsule()
                                     .stroke(Color.black, lineWidth: 2)
@@ -111,13 +110,11 @@ struct AddClassPageMain: View {
                     )
                     .padding(.top, 250)
                 }
-                NavigationLink(destination: MainPage(), isActive: $shouldNavigateToMainPage) {
-                    EmptyView()
-                }
+                NavigationLink("", destination: MainPage(), isActive: $shouldNavigateToMainPage)
+                    .navigationBarBackButtonHidden(true)
             }
         }
     }
-        
     struct OtpModifier: ViewModifier {
         @Binding var pin: String
         var targetPin: Pin2
@@ -139,7 +136,6 @@ struct AddClassPageMain: View {
                 )
         }
     }
-}
 
 struct AddClassPageMain_Previews: PreviewProvider {
     static var previews: some View {
