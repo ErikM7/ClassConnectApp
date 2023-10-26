@@ -113,7 +113,8 @@ struct NamePage: View {
                 
                 if shouldNavigateToMainPage && !name.isEmpty {
                     NavigationLink("", destination: MainPage(), isActive: $shouldNavigateToMainPage)
-                        .navigationBarBackButtonHidden(true)
+                        EmptyView()
+                    
                 }
             }
         }
@@ -121,6 +122,5 @@ struct NamePage: View {
 struct NamePage_Previews: PreviewProvider {
     static var previews: some View {
         NamePage()
-            .navigationBarBackButtonHidden(true)
     }
 }

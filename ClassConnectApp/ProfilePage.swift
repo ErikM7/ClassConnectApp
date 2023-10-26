@@ -6,9 +6,6 @@ struct ProfilePage: View {
     @State private var favoriteSport: String = ""
     @State private var videoGames: String = ""
     var body: some View {
-        NavigationView{
-            ProfilePage()
-                .navigationBarBackButtonHidden(true)
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
@@ -65,7 +62,6 @@ struct ProfilePage: View {
                 }
             }
         }
-    }
     
     struct InputField1: View {
         var title: String

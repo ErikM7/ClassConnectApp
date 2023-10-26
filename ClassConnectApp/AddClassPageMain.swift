@@ -5,12 +5,11 @@ enum Pin2 {
 }
 
 struct AddClassPageMain: View {
-    
     @FocusState private var pinFocusState: Pin2?
-    @State var pinOne1: String = ""
-    @State var pinTwo2: String = ""
-    @State var pinThree3: String = ""
-    @State var pinFour4: String = ""
+    @State private var pinOne1: String = ""
+    @State private var pinTwo2: String = ""
+    @State private var pinThree3: String = ""
+    @State private var pinFour4: String = ""
     @State private var shouldNavigateToMainPage = false
     
     var body: some View {
@@ -70,7 +69,7 @@ struct AddClassPageMain: View {
                             .focused($pinFocusState, equals: .pinOne1)
                         
                         TextField("", text: $pinTwo2)
-                          .modifier(OtpModifier(pin: $pinTwo2, targetPin: .pinTwo2))
+                            .modifier(OtpModifier(pin: $pinTwo2, targetPin: .pinTwo2))
                             .focused($pinFocusState, equals: .pinTwo2)
                         
                         TextField("", text: $pinThree3)
@@ -78,7 +77,7 @@ struct AddClassPageMain: View {
                             .focused($pinFocusState, equals: .pinThree3)
                         
                         TextField("", text: $pinFour4)
-                           .modifier(OtpModifier(pin: $pinFour4, targetPin: .pinFour4))
+                            .modifier(OtpModifier(pin: $pinFour4, targetPin: .pinFour4))
                             .focused($pinFocusState, equals: .pinFour4)
                     }
                 }
@@ -111,10 +110,10 @@ struct AddClassPageMain: View {
                     .padding(.top, 250)
                 }
                 NavigationLink("", destination: MainPage(), isActive: $shouldNavigateToMainPage)
-                    .navigationBarBackButtonHidden(true)
+                EmptyView()
             }
         }
-    }
+    
     struct OtpModifier: ViewModifier {
         @Binding var pin: String
         var targetPin: Pin2
@@ -136,6 +135,7 @@ struct AddClassPageMain: View {
                 )
         }
     }
+}
 
 struct AddClassPageMain_Previews: PreviewProvider {
     static var previews: some View {

@@ -3,10 +3,8 @@ import SwiftUI
 struct MainPage: View {
     @State private var shouldNavigateToProfilePage = false
     @State private var shouldNavigateToGame_Page = false
-    @State private var shouldNavigateToAddClassPage = false
     @State private var shouldNavigateToAddClassPageMain = false
     var body: some View {
-        NavigationView{
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
@@ -112,7 +110,7 @@ struct MainPage: View {
                         }
                     }
                     NavigationLink("", destination: AddClassPageMain(), isActive: $shouldNavigateToAddClassPageMain)
-                        .navigationBarBackButtonHidden(true)
+                       EmptyView()
                 }
                 .padding(.top, 250)
                 
@@ -141,7 +139,32 @@ struct MainPage: View {
                 }
                 
                 
-                
+                Button(action: {
+                    // Perform logout logic here
+                    // For example, clear the user's session and navigate to a login view
+                    clearUserSession()
+                    navigateToLoginView()
+                }) {
+                    // Button content
+                    Text("Log Out")
+                        .foregroundColor(Color.white)
+                                       .fontWeight(.heavy)
+                                       .multilineTextAlignment(.trailing)
+                                       .font(.system(size: 25))
+                                       .padding(19)
+                                       .background(
+                                           Capsule()
+                                               .fill(
+                                                   LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                               )
+                                       )
+                                       .overlay(
+                                           Capsule()
+                                               .stroke(Color.black, lineWidth: 4)
+                                       )
+                               }
+                               .padding(.trailing, 125)
+                }
                 
                 
                 
@@ -152,8 +175,6 @@ struct MainPage: View {
         }
         
     }
-}
-
 
 
 

@@ -70,7 +70,7 @@ struct Game_Page: View {
                 
                 VStack {
                     Button(action: {
-                        shouldNavigateToGamePage = true
+                        
                     }) {
                         VStack {
                             Text("Games")
