@@ -4,6 +4,7 @@ struct MainPage: View {
     @State private var shouldNavigateToProfilePage = false
     @State private var shouldNavigateToGame_Page = false
     @State private var shouldNavigateToAddClassPageMain = false
+    @State private var shouldNavigateToAddClassPage = false
     @State private var isLoggedOut = false
     var body: some View {
         ZStack {
@@ -119,7 +120,7 @@ struct MainPage: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: {
+                    Button(action: {shouldNavigateToAddClassPage = true
                     }) {
                         // Button content
                         Text("Log Out")
@@ -141,7 +142,7 @@ struct MainPage: View {
                     }
                     .padding(.trailing, 125)
                     .background(
-                                NavigationLink("", destination: AddClassPage(), isActive: $isLoggedOut)
+                                NavigationLink("", destination: AddClassPage(), isActive: $shouldNavigateToAddClassPage)
                )}
                 
             }

@@ -14,9 +14,6 @@ struct Game_Page: View {
     @State private var shouldNavigateToAddClass2 = false
     
     var body: some View {
-        NavigationView{
-            Game_Page()
-                .navigationBarBackButtonHidden(true)
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea()
@@ -140,7 +137,6 @@ struct Game_Page: View {
             }
         }
     }
-}
 struct Game_Page_Previews: PreviewProvider {
     static var previews: some View {
         MainPage()
