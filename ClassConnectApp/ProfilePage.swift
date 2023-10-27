@@ -35,28 +35,28 @@ struct ProfilePage: View {
                     Text("Graduation Year")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 35)
                     
                     InputField1(title: "Graduation Year", text: $graduationYear)
                     
                     Text("Favorite Music")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 18)
                     
                     InputField1(title: "Favorite Music", text: $favoriteMusic)
                     
                     Text("Favorite Sport")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 18)
                     
                     InputField1(title: "Favorite Sport", text: $favoriteSport)
                     
                     Text("Favorite Video Games")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 18)
                     
                     InputField1(title: "Favorite Video Game", text: $videoGames)
                     
@@ -104,7 +104,7 @@ struct ProfilePage: View {
                     .padding()
                     .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
             }
-            .padding(.top, 20)
+            .padding(.top, 16)
         }
     }
 }

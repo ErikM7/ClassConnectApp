@@ -35,7 +35,7 @@ struct ProfilePage2: View {
                     Text("Favorite Subject")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 18)
+                        .padding(.top, 35)
                     
                     InputField1(title: "Favorite Subject", text: $favoriteSubject)
                     
@@ -104,7 +104,7 @@ struct ProfilePage2: View {
                     .padding()
                     .border(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom), width: 1.8)
             }
-            .padding(.top, 20)
+            .padding(.top, 16)
         }
     }
 }
