@@ -28,6 +28,7 @@ struct MainPage: View {
                 Spacer()
             }
             .padding(.top, 20)
+            
             VStack {
                 Button(action: {
                     // Set the boolean to true to trigger navigation
@@ -52,9 +53,8 @@ struct MainPage: View {
                                     .stroke(Color.black, lineWidth: 4)
                             )
                     }
-                    
+                    NavigationLink("", destination: ProfilePage(), isActive: $shouldNavigateToProfilePage)
                 }
-                NavigationLink("", destination: ProfilePage(), isActive: $shouldNavigateToProfilePage)
             }
             .padding(.top, -150)
             

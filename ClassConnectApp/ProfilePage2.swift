@@ -5,7 +5,7 @@ struct ProfilePage2: View {
     @State private var favoriteFood: String = ""
     @State private var favoriteMovie: String = ""
     @State private var describeYourself: String = ""
-    @State private var shouldNavigateToProfilePage2 = false
+    @State private var shouldNavigateToMainPage = false
     var body: some View {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -35,28 +35,28 @@ struct ProfilePage2: View {
                     Text("Favorite Subject")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 18)
                     
                     InputField1(title: "Favorite Subject", text: $favoriteSubject)
                     
                     Text("Favorite Food")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 18)
                     
                     InputField1(title: "Favorite Food", text: $favoriteFood)
                     
                     Text("Favorite Movie")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 18)
                     
                     InputField1(title: "Favorite Movie", text: $favoriteMovie)
                     
                     Text("Describe yourself in one word")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
-                        .padding(.top, 20)
+                        .padding(.top, 18)
                     
                     InputField1(title: "Describe yourself in one word", text: $describeYourself)
                     
@@ -65,10 +65,10 @@ struct ProfilePage2: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        Button(action: {
+                        Button(action: {shouldNavigateToMainPage = true
                         }) {
                             // Button content
-                            Text("Next Page")
+                            Text("Submit Profile")
                                 .foregroundColor(Color.white)
                                 .fontWeight(.heavy)
                                 .multilineTextAlignment(.trailing)
@@ -85,9 +85,9 @@ struct ProfilePage2: View {
                                         .stroke(Color.black, lineWidth: 4)
                                 )
                         }
-                        .padding(.trailing, 125)
+                        .padding(.trailing, 90)
                         .background(
-                                NavigationLink("", destination: ProfilePage2(), isActive: $shouldNavigateToProfilePage2)
+                                NavigationLink("", destination: MainPage(), isActive: $shouldNavigateToMainPage)
                    )}
                     
                 }

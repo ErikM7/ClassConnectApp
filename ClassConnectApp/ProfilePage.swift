@@ -65,7 +65,7 @@ struct ProfilePage: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        Button(action: {
+                        Button(action: { shouldNavigateToProfilePage2 = true
                         }) {
                             // Button content
                             Text("Next Page")
@@ -85,7 +85,7 @@ struct ProfilePage: View {
                                         .stroke(Color.black, lineWidth: 4)
                                 )
                         }
-                        .padding(.trailing, 125)
+                        .padding(.trailing, 115)
                         .background(
                                 NavigationLink("", destination: ProfilePage2(), isActive: $shouldNavigateToProfilePage2)
                    )}
