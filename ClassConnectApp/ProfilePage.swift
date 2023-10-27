@@ -5,6 +5,7 @@ struct ProfilePage: View {
     @State private var favoriteMusic: String = ""
     @State private var favoriteSport: String = ""
     @State private var videoGames: String = ""
+    @State private var shouldNavigateToProfilePage2 = false
     var body: some View {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -58,6 +59,36 @@ struct ProfilePage: View {
                         .padding(.top, 20)
                     
                     InputField1(title: "Favorite Video Game", text: $videoGames)
+                    
+                }
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                        }) {
+                            // Button content
+                            Text("Next Page")
+                                .foregroundColor(Color.white)
+                                .fontWeight(.heavy)
+                                .multilineTextAlignment(.trailing)
+                                .font(.system(size: 25))
+                                .padding(19)
+                                .background(
+                                    Capsule()
+                                        .fill(
+                                            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                        )
+                                )
+                                .overlay(
+                                    Capsule()
+                                        .stroke(Color.black, lineWidth: 4)
+                                )
+                        }
+                        .padding(.trailing, 125)
+                        .background(
+                                NavigationLink("", destination: ProfilePage2(), isActive: $shouldNavigateToProfilePage2)
+                   )}
                     
                 }
             }

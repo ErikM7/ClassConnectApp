@@ -120,8 +120,6 @@ struct MainPage: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        clearUserSession()
-                        isLoggedOut= true)
                     }) {
                         // Button content
                         Text("Log Out")
