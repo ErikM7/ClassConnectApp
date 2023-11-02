@@ -57,35 +57,8 @@ struct MainPage: View {
                     NavigationLink("", destination: ProfilePage(), isActive: $shouldNavigateToProfilePage)
                 }
             }
-            .padding(.top, -150)
+            .padding(.top, -100)
             
-            VStack {
-                Button(action: {
-                    shouldNavigateToGame_Page = true
-                }) {
-                    VStack {
-                        Text("Games")
-                            .foregroundColor(Color.white)
-                            .fontWeight(.heavy)
-                            .multilineTextAlignment(.center)
-                            .font(.system(size: 30))
-                            .padding(19)
-                            .background(
-                                Capsule()
-                                    .fill(
-                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom)
-                                    )
-                            )
-                            .overlay(
-                                Capsule()
-                                    .stroke(Color.black, lineWidth: 4)
-                            )
-                    }
-                }
-                
-                NavigationLink("", destination: Game_Page(), isActive: $shouldNavigateToGame_Page)
-            }
-            .padding(.top, 0)
             
             VStack {
                 Button(action: {
@@ -114,7 +87,7 @@ struct MainPage: View {
                 NavigationLink("", destination: AddClassPageMain(), isActive: $shouldNavigateToAddClassPageMain)
                 EmptyView()
             }
-            .padding(.top, 250)
+            .padding(.top, 200)
             
             VStack {
                 Spacer()

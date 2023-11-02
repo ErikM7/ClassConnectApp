@@ -16,6 +16,7 @@
 		222EC1192AE6C04000E94C0D /* Game Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222EC1182AE6C04000E94C0D /* Game Page.swift */; };
 		222EC11B2AE6C0F400E94C0D /* AddClassPageMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222EC11A2AE6C0F400E94C0D /* AddClassPageMain.swift */; };
 		2250F2BF2AE1740A00DDFEE7 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250F2BE2AE1740A00DDFEE7 /* ProfilePage.swift */; };
+		229F26222AF14661007391D5 /* API request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F26212AF14661007391D5 /* API request.swift */; };
 		22C2F6312ADECB27001F9ABF /* AddClassPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2F6302ADECB27001F9ABF /* AddClassPage.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		222EC1182AE6C04000E94C0D /* Game Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game Page.swift"; sourceTree = "<group>"; };
 		222EC11A2AE6C0F400E94C0D /* AddClassPageMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassPageMain.swift; sourceTree = "<group>"; };
 		2250F2BE2AE1740A00DDFEE7 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		229F26212AF14661007391D5 /* API request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API request.swift"; sourceTree = "<group>"; };
 		22C2F6302ADECB27001F9ABF /* AddClassPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 		2226E02F2ACB0A2B006E9105 /* ClassConnectApp */ = {
 			isa = PBXGroup;
 			children = (
+				229F26212AF14661007391D5 /* API request.swift */,
 				2226E0302ACB0A2B006E9105 /* ClassConnectAppApp.swift */,
 				22C2F6302ADECB27001F9ABF /* AddClassPage.swift */,
 				1F5C2B522ACDAFBD00A6C463 /* NamePage.swift */,
@@ -160,6 +163,7 @@
 				222EC11B2AE6C0F400E94C0D /* AddClassPageMain.swift in Sources */,
 				2226E0312ACB0A2B006E9105 /* ClassConnectAppApp.swift in Sources */,
 				1F5C2B532ACDAFBD00A6C463 /* NamePage.swift in Sources */,
+				229F26222AF14661007391D5 /* API request.swift in Sources */,
 				222EC1192AE6C04000E94C0D /* Game Page.swift in Sources */,
 				22C2F6312ADECB27001F9ABF /* AddClassPage.swift in Sources */,
 				222EC1112AE6B0BF00E94C0D /* ProfilePage2.swift in Sources */,

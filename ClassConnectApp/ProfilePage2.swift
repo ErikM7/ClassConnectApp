@@ -1,100 +1,99 @@
 import SwiftUI
-
+import Foundation
 struct ProfilePage2: View {
     @State private var favoriteSubject: String = ""
     @State private var favoriteFood: String = ""
     @State private var favoriteMovie: String = ""
     @State private var describeYourself: String = ""
     @State private var shouldNavigateToMainPage = false
+    @State private var apiResponse = ""
     var body: some View {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .ignoresSafeArea()
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+            
+            ScrollView {
+                VStack {
+                    Text("Profile Page")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.black)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 35))
+                        .padding(19)
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
+                        )
+                        .cornerRadius(2)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 2)
+                                .stroke(Color.black, lineWidth: 4)
+                        )
+                        .shadow(color: Color.white, radius: 25)
+                    Spacer()
+                }
+                .padding(.top, 20)
                 
-                ScrollView {
-                    VStack {
-                        Text("Profile Page")
+                Text("Favorite Subject")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top, 34)
+                
+                InputField2(title: "Favorite Subject", text: $favoriteSubject)
+                
+                Text("Favorite Food")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top, 16)
+                
+                InputField2(title: "Favorite Food", text: $favoriteFood)
+                
+                Text("Favorite Movie")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top, 16)
+                
+                InputField2(title: "Favorite Movie", text: $favoriteMovie)
+                
+                Text("Describe yourself in one word")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .padding(.top, 16)
+                
+                InputField2(title: "Describe yourself in one word", text: $describeYourself)
+                
+            }
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {shouldNavigateToMainPage = true
+                    }) {
+                        // Button content
+                        Text("Submit Profile")
                             .foregroundColor(Color.white)
-                            .fontWeight(.black)
-                            .multilineTextAlignment(.center)
-                            .font(.system(size: 35))
+                            .fontWeight(.heavy)
+                            .multilineTextAlignment(.trailing)
+                            .font(.system(size: 25))
                             .padding(19)
                             .background(
-                                LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .top, endPoint: .bottom)
+                                Capsule()
+                                    .fill(
+                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
+                                    )
                             )
-                            .cornerRadius(2)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 2)
+                                Capsule()
                                     .stroke(Color.black, lineWidth: 4)
                             )
-                            .shadow(color: Color.white, radius: 25)
-                        Spacer()
                     }
-                    .padding(.top, 20)
-                    
-                    Text("Favorite Subject")
-                        .font(.system(size: 18))
-                        .fontWeight(.bold)
-                        .padding(.top, 35)
-                    
-                    InputField1(title: "Favorite Subject", text: $favoriteSubject)
-                    
-                    Text("Favorite Food")
-                        .font(.system(size: 18))
-                        .fontWeight(.bold)
-                        .padding(.top, 18)
-                    
-                    InputField1(title: "Favorite Food", text: $favoriteFood)
-                    
-                    Text("Favorite Movie")
-                        .font(.system(size: 18))
-                        .fontWeight(.bold)
-                        .padding(.top, 18)
-                    
-                    InputField1(title: "Favorite Movie", text: $favoriteMovie)
-                    
-                    Text("Describe yourself in one word")
-                        .font(.system(size: 18))
-                        .fontWeight(.bold)
-                        .padding(.top, 18)
-                    
-                    InputField1(title: "Describe yourself in one word", text: $describeYourself)
-                    
-                }
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {shouldNavigateToMainPage = true
-                        }) {
-                            // Button content
-                            Text("Submit Profile")
-                                .foregroundColor(Color.white)
-                                .fontWeight(.heavy)
-                                .multilineTextAlignment(.trailing)
-                                .font(.system(size: 25))
-                                .padding(19)
-                                .background(
-                                    Capsule()
-                                        .fill(
-                                            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.orange]), startPoint: .top, endPoint: .bottom)
-                                        )
-                                )
-                                .overlay(
-                                    Capsule()
-                                        .stroke(Color.black, lineWidth: 4)
-                                )
-                        }
-                        .padding(.trailing, 90)
-                        .background(
-                                NavigationLink("", destination: MainPage(), isActive: $shouldNavigateToMainPage)
-                   )}
-                    
-                }
+                    .padding(.trailing, 90)
+                    .background(
+                        NavigationLink("", destination: MainPage(), isActive: $shouldNavigateToMainPage)
+                    )}
             }
         }
-    
-    struct InputField1: View {
+    }
+    struct InputField2: View {
         var title: String
         @Binding var text: String
         
@@ -107,10 +106,10 @@ struct ProfilePage2: View {
             .padding(.top, 16)
         }
     }
-}
-struct ProfilePage2_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfilePage2()
+    struct ProfilePage2_Previews: PreviewProvider {
+        static var previews: some View {
+            ProfilePage2()
+        }
     }
+    
 }
-

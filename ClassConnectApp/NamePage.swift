@@ -99,7 +99,7 @@ struct NamePage: View {
                                 .foregroundColor(.white)
                             Spacer()
                         }
-                        .padding(15)
+                        .padding(15 )
                         .background(
                             Capsule()
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.clear]), startPoint: .top, endPoint: .bottom))

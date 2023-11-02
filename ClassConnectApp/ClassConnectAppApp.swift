@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Foundation
 @main
 struct ClassConnectAppApp: App {
     var body: some Scene {
